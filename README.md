@@ -11,7 +11,7 @@
 | first_name         | string   | null: false               |
 | kana_family_name   | string   | null: false               |
 | kana_first_name    | string   | null: false               |
-| birthday           | datetime | null: false               |
+| birthday           | date     | null: false               |
 
 ### Association
 
@@ -40,8 +40,7 @@
 - belong_to :condition_id
 - belong_to :postage_id 
 - belong_to :prefecture_id
-- belong_to :take_days_id
-- has_one :shipping_addresses
+- belong_to :take_days_id 
 
 
 ## buying_items テーブル
@@ -55,6 +54,7 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one :address
 
 ## addresses テーブル
 
@@ -65,11 +65,11 @@
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building      | string     |                                |
-| phone_number  | integer    | null: false                    |
-| item          | references | null: false, foreign_key: true |
+| phone_number  | string     | null: false                    |
+| buying_item   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belong_to :prefecture_id
-- belong_to :item
+- belong_to :buying_item
 
