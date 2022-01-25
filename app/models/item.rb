@@ -15,4 +15,8 @@ class Item < ApplicationRecord
   validates :postage_id, numericality: { other_than: 1, message: "can't be blank" } 
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" } 
   validates :take_days_id, numericality: { other_than: 1, message: "can't be blank" } 
+
+  with_options presence: true, format: { with: /3[0-9][0-9]|[1-9][0-9][0-9][0-9][0-9][0-9][0-9]\d, message: '半角を使用してください' } do
+    validates :price
+  end
 end
