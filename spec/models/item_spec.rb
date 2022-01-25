@@ -16,7 +16,7 @@ RSpec.describe Item, type: :model do
         @item.item_name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Item name can't be blank")
-      end     
+      end
       it 'textが空では出品できない' do
         @item.text = ''
         @item.valid?
@@ -55,12 +55,12 @@ RSpec.describe Item, type: :model do
       it 'priceは¥300~¥9,999,999の間でなければ出品できない' do
         @item.price = '200'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price 300から9999999の間で半角入力してください")
+        expect(@item.errors.full_messages).to include('Price 300から9999999の間で半角入力してください')
       end
       it 'priceは半角数字でなければ出品できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price 300から9999999の間で半角入力してください")
+        expect(@item.errors.full_messages).to include('Price 300から9999999の間で半角入力してください')
       end
       it 'imageが空では出品できない' do
         @item.image = nil
