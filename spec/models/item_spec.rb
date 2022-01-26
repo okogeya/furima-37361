@@ -52,8 +52,13 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it 'priceは¥300~¥9,999,999の間でなければ出品できない' do
+      it 'priceが¥300より下では出品できない' do
         @item.price = '200'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price 300から9999999の間で半角入力してください')
+      end
+      it 'priceが¥9999999より上では出品できない' do
+        @item.price = '10000000'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price 300から9999999の間で半角入力してください')
       end
@@ -66,6 +71,11 @@ RSpec.describe Item, type: :model do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+      it 'ユーザーが紐付いていなければ出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end

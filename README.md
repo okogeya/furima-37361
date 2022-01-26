@@ -34,13 +34,13 @@
 
 ### Association
 
-- belong_to :user
+- belongs_to :user
 - has_one :buying_item
-- belong_to :category_id
-- belong_to :condition_id
-- belong_to :postage_id 
-- belong_to :prefecture_id
-- belong_to :take_days_id 
+- belongs_to :category_id
+- belongs_to :condition_id
+- belongs_to :postage_id 
+- belongs_to :prefecture_id
+- belongs_to :take_days_id 
 
 
 ## buying_items テーブル
@@ -70,6 +70,6 @@
 
 ### Association
 
-- belong_to :prefecture_id
-- belong_to :buying_item
+- belongs_to :prefecture_id
+- belongs_to :buying_item
 
