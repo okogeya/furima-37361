@@ -35,22 +35,22 @@ RSpec.describe User, type: :model do
       it 'family_nameが空では登録できない' do
         @user.family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name can't be blank", "Family name 全角（漢字・ひらがな・カタカナ）を使用してください")
+        expect(@user.errors.full_messages).to include("Family name can't be blank", 'Family name 全角（漢字・ひらがな・カタカナ）を使用してください')
       end
       it 'first_nameが空では登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name can't be blank", "First name 全角（漢字・ひらがな・カタカナ）を使用してください")
+        expect(@user.errors.full_messages).to include("First name can't be blank", 'First name 全角（漢字・ひらがな・カタカナ）を使用してください')
       end
       it 'kana_family_nameが空では登録できない' do
         @user.kana_family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Kana family name can't be blank", "Kana family name 全角（カタカナ）を使用してください")
+        expect(@user.errors.full_messages).to include("Kana family name can't be blank", 'Kana family name 全角（カタカナ）を使用してください')
       end
       it 'kana_first_nameが空では登録できない' do
         @user.kana_first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Kana first name can't be blank", "Kana first name 全角（カタカナ）を使用してください")
+        expect(@user.errors.full_messages).to include("Kana first name can't be blank", 'Kana first name 全角（カタカナ）を使用してください')
       end
       it 'birthdayが空では登録できない' do
         @user.birthday = ''
