@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :buying_items
+- has_many :orders
 
 ## items テーブル
 
@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :buying_item
+- has_one :order
 - belongs_to :category_id
 - belongs_to :condition_id
 - belongs_to :postage_id 
@@ -43,7 +43,7 @@
 - belongs_to :take_days_id 
 
 
-## buying_items テーブル
+## orders テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -66,10 +66,10 @@
 | house_number  | string     | null: false                    |
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
-| buying_item   | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :prefecture_id
-- belongs_to :buying_item
+- belongs_to :order
 
