@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :post_code, :prefecture, :city, :house_number, :building, :phone_number, :order_id, :item_id, :user_id
+  attr_accessor :post_code, :prefecture, :city, :house_number, :building, :phone_number, :order_id, :item_id, :user_id, :token
 
   with_options presence: true do
     validates :city
@@ -9,6 +9,7 @@ class OrderAddress
     validates :user_id
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :phone_number, format: {with: /\A0[0-9]{9,10}\z/, message:"10桁以上11桁以内の半角数値で入力してください（ハイフンなし）"}
+    validates :token
   end
   validates :prefecture, numericality: {other_than: 1, message: "can't be blank"}
 
