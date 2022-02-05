@@ -55,22 +55,22 @@ RSpec.describe OrderAddress, type: :model do
       it 'phone_numberが半角数値のみでないと保存できないこと' do
         @order_address.phone_number = '０１１１１１１１１１'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）")
+        expect(@order_address.errors.full_messages).to include('Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）')
       end
       it 'phone_numberにハイフンが含まれると保存できないこと' do
         @order_address.phone_number = '0111-111-111'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）")
+        expect(@order_address.errors.full_messages).to include('Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）')
       end
       it 'phone_numberが半角9桁以下の数値では保存できないこと' do
         @order_address.phone_number = '012345678'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）")
+        expect(@order_address.errors.full_messages).to include('Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）')
       end
       it 'phone_numberが半角12桁以上の数値では保存できないこと' do
         @order_address.phone_number = '012345678900'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）")
+        expect(@order_address.errors.full_messages).to include('Phone number 10桁以上11桁以内の半角数値で入力してください（ハイフンなし）')
       end
       it 'userが紐付いていないと保存できないこと' do
         @order_address.user_id = nil
